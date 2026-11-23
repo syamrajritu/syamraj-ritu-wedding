@@ -1,12 +1,21 @@
-SYAMRAJ & RITU — GITHUB WEBSITE FILES
+SYAMRAJ & RITU — GITHUB UPLOAD (WITH LAAL ISHQ)
 
-This is the standalone wedding website package.
+This package contains the website files and the actual Laal Ishq MP3.
 
-IMPORTANT: Extract this ZIP on your computer first. Then upload the contents of this folder to the root of your GitHub repository:
+IMPORTANT: Upload the CONTENTS of this ZIP to the ROOT of your GitHub repository (syamraj-ritu-wedding), not the ZIP file itself and not an extra enclosing folder.
+
+At the repository root, you should see:
 - index.html
-- images/ (the complete folder and all images inside it)
+- laal-ishq.mp3
+- images/  (folder containing all website photos and venue-qr.png)
 
-Do NOT upload the ZIP file itself as the website source.
-Do NOT rename index.html or the images folder.
+Steps:
+1. Open https://github.com/syamrajritu/syamraj-ritu-wedding
+2. Click Add file > Upload files.
+3. Extract this ZIP on your computer. Open the extracted folder.
+4. Drag index.html, laal-ishq.mp3, and the images folder into the GitHub upload area. (If the images folder is already in the repository, upload/replace its contents only if prompted.)
+5. Scroll down and click Commit changes.
+6. Wait for GitHub Pages to deploy, then refresh the website.
+7. On the website, tap PLAY OUR SONG. Phones do not allow music to autoplay before a visitor taps.
 
-The RSVP form in this static version is a preview and does not save/send responses.
+Keep the existing GitHub Pages setting: Deploy from branch > main > /(root).

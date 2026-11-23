@@ -47,4 +47,31 @@ document.getElementById('previewSubmit').addEventListener('click',()=>{const n=d
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
 const lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img'),imgs=[...document.querySelectorAll('.gallery-grid img')];let idx=0;function show(i){idx=(i+imgs.length)%imgs.length;lbImg.src=imgs[idx].src;lb.classList.add('open')}imgs.forEach((im,i)=>im.parentElement.addEventListener('click',()=>show(i)));lb.querySelector('.close').onclick=()=>lb.classList.remove('open');lb.querySelector('.prev').onclick=()=>show(idx-1);lb.querySelector('.next').onclick=()=>show(idx+1);lb.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('open')});document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')lb.classList.remove('open');if(e.key==='ArrowRight')show(idx+1);if(e.key==='ArrowLeft')show(idx-1)});
 </script>
+
+<!-- Wedding music: tap the floating button to start playback (mobile browsers require a tap). -->
+<audio id="weddingSong" preload="metadata" src="laal-ishq.mp3"></audio>
+<style>
+.song-control{position:fixed;right:16px;bottom:24px;z-index:30;display:flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid #b58b55;border-radius:999px;background:rgba(34,22,12,.94);color:#fbf8f1;font:12px Jost,sans-serif;letter-spacing:.08em;box-shadow:0 5px 22px #22160c30;cursor:pointer}
+.song-control .song-icon{font-size:17px;color:#e4c18a;line-height:1}
+.song-control:focus-visible{outline:2px solid #b58b55;outline-offset:3px}
+@media(max-width:760px){.song-control{right:12px;bottom:18px;padding:9px 13px}}
+</style>
+<button class="song-control" id="songToggle" type="button" aria-label="Play our song" aria-pressed="false"><span class="song-icon" id="songIcon">♫</span><span id="songLabel">PLAY OUR SONG</span></button>
+<script>
+(function(){
+ const audio=document.getElementById('weddingSong');
+ const btn=document.getElementById('songToggle');
+ const label=document.getElementById('songLabel');
+ const icon=document.getElementById('songIcon');
+ if(!audio||!btn)return;
+ btn.addEventListener('click',async()=>{
+   if(audio.paused){try{await audio.play();}catch(e){label.textContent='TAP TO PLAY';}}
+   else{audio.pause();}
+ });
+ audio.addEventListener('play',()=>{label.textContent='PAUSE OUR SONG';icon.textContent='Ⅱ';btn.setAttribute('aria-label','Pause our song');btn.setAttribute('aria-pressed','true');});
+ audio.addEventListener('pause',()=>{label.textContent='PLAY OUR SONG';icon.textContent='♫';btn.setAttribute('aria-label','Play our song');btn.setAttribute('aria-pressed','false');});
+ audio.addEventListener('ended',()=>{label.textContent='PLAY OUR SONG';icon.textContent='♫';btn.setAttribute('aria-label','Play our song');btn.setAttribute('aria-pressed','false');});
+})();
+</script>
+
 </body></html>
