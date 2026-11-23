@@ -1,0 +1,12 @@
+SYAMRAJ & RITU — GITHUB WEBSITE FILES
+
+This is the standalone wedding website package.
+
+IMPORTANT: Extract this ZIP on your computer first. Then upload the contents of this folder to the root of your GitHub repository:
+- index.html
+- images/ (the complete folder and all images inside it)
+
+Do NOT upload the ZIP file itself as the website source.
+Do NOT rename index.html or the images folder.
+
+The RSVP form in this static version is a preview and does not save/send responses.
